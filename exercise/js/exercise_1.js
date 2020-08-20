@@ -1,13 +1,15 @@
-const Account = function (obj) {
-    this.login = obj.login;
-    this.email = obj.email;
-};
+class Account {
+    constructor(user) {
+        this.login = user.login;
+        this.email = user.email;
+    }
 
-Account.prototype.getInfo = function () {
-    console.log(`Login:${this.login}, Email:${this.email}`);
-};
+    getInfo() {
+        console.log(`Login: ${this.login}, Email: ${this.email}`);
+    }
+}
 
-console.log(Account.prototype.getInfo);
+console.log(typeof Account.prototype.getInfo); // function
 
 const mango = new Account({
     login: 'Mangozedog',

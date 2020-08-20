@@ -1,6 +1,6 @@
 class Storage {
-    constructor(...arr) {
-        this.items = arr;
+    constructor(...obj) {
+        this.items = obj;
     }
 
     getItems() {
@@ -8,6 +8,9 @@ class Storage {
     }
 
     addItem(item) {
+        if (this.items.includes(item)) {
+            return `The storage already has ${item}`;
+        }
         this.items.push(item);
     }
 
@@ -18,12 +21,12 @@ class Storage {
     }
 }
 
-const storage = new Storage(
+const storage = new Storage([
     'Нанитоиды',
     'Пролонгер',
     'Железные жупи',
     'Антигравитатор',
-);
+]);
 
 const items = storage.getItems();
 console.table(items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор" ]
@@ -33,3 +36,5 @@ console.table(storage.items); // [ "Нанитоиды", "Пролонгер", "
 
 storage.removeItem('Пролонгер');
 console.table(storage.items); // [ "Нанитоиды", "Железные жупи", "Антигравитатор", "Дроид" ]
+
+console.log(storage.addItem('Дроид')); // The storage already has Дроид

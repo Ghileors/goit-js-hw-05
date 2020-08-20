@@ -1,22 +1,22 @@
 class StringBuilder {
-    constructor(val) {
-        this.$value = val;
+    constructor(value) {
+        this._value = value;
     }
 
     get value() {
-        return this.$value;
+        return this._value;
     }
 
     append(str) {
-        this.$value += str;
+        this._value += str;
     }
 
     prepend(str) {
-        this.$value = str + this.$value;
+        this._value = str + this._value;
     }
 
     pad(str) {
-        this.$value = str + this.$value + str;
+        this._value = str + this._value + str;
     }
 }
 
